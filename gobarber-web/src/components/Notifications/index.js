@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { MdNotifications } from 'react-icons';
+import { MdNotifications } from 'react-icons/md';
 import { parseISO, formatDistance } from 'date-fns';
-import pt from 'date-fns/local/pt';
+import pt from 'date-fns/locale/pt';
 
 import api from '~/services/api';
 
@@ -63,10 +63,10 @@ export default function Notifications() {
 
       <NotificationList visible={visible}>
         <Scroll>
-          {notifications.map(notifications => (
+          {notifications.map(notification => (
             <Notification key={notification._id} unread={!notification.read}>
               <p>{notification.content}</p>
-              <time>{notifications.timeDistance}</time>
+              <time>{notification.timeDistance}</time>
               {!notification.read && (
                 <button
                   type="button"
